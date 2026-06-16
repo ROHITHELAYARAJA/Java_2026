@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class LinearSearch {
     static void main() {
+        // In every call the i is the index position 0.
         int arr[] = {1,24,5,7,9,9};
         int tar = 9;
         System.out.println(search(arr,tar,0));
@@ -13,6 +14,7 @@ public class LinearSearch {
         ArrayList<Integer> ans = AllInd(arr,tar,0,list1);
         System.out.println(ans);
         System.out.println(list1);
+        System.out.println(AllInd2(arr,tar,0));
 
     }
     static boolean search(int [] arr,int tar,int i){
@@ -56,13 +58,28 @@ public class LinearSearch {
         }
         searchIndAll(arr,tar,i+1);
     }
-    static ArrayList<Integer> AllInd(int [] arr,int tar,int i,ArrayList<Integer> list){
-        if(i==arr.length){
+    static ArrayList<Integer> AllInd(int [] arr,int tar,int i,ArrayList<Integer> list) {
+        if (i == arr.length) {
             return list;
         }
-        if(arr[i]==tar){
+        if (arr[i] == tar) {
             list.add(i);
         }
-        return AllInd(arr,tar,i+1,list);
+        return AllInd(arr, tar, i + 1, list);
     }
+
+    static ArrayList<Integer> AllInd2(int [] arr,int tar,int i) {
+        ArrayList<Integer> list =  new ArrayList<>();
+        if (i == arr.length) {
+            return list;
+        }
+//      every function call has it's own answer
+        if (arr[i] == tar) {
+            list.add(i);
+        }
+        ArrayList<Integer> allBelowCalls = AllInd2(arr, tar, i + 1);
+        list.addAll(allBelowCalls);
+        return list;
+    }
+
 }
