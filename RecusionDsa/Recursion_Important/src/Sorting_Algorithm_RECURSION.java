@@ -1,37 +1,23 @@
 import java.util.Arrays;
 
 public class Sorting_Algorithm_RECURSION {
-    static void main() {
+   public static void main(String[] args) {
         int [] arr = {1,4,5,2,3};
-        bubble_SORT(arr,arr.length-1,0);
-        System.out.println(Arrays.toString(arr));
-        bubble_SORT2(arr,arr.length-1,0);
+        bubbleSort(arr, arr.length-1,0 );
         System.out.println(Arrays.toString(arr));
 
     }
-    static void bubble_SORT(int[] arr,int start ,int end) {
-        if(start==0){
-            return ;
+    static void bubbleSort(int[] arr, int row, int col) {
+        if (row == 0) {
+            return;
         }
-        if(arr[start]>arr[end]){
-            swap(arr,start,end);
-            bubble_SORT(arr,start-1,end);
-        }
-        else{
-            bubble_SORT(arr,start-1,end);
-        }
-    }
-
-    static void bubble_SORT2(int[] arr,int start ,int end) {
-        if(start==0){
-            return ;
-        }
-        if(arr[start]<arr[end]){
-            swap(arr,start,end);
-            bubble_SORT2(arr,start-1,end);
-        }
-        else{
-            bubble_SORT2(arr,start-1,end);
+        if (col < row) {
+            if (arr[col] > arr[col + 1]) {
+                swap(arr, col, col + 1);
+            }
+            bubbleSort(arr, row, col + 1);
+        } else {
+            bubbleSort(arr, row - 1, 0);
         }
     }
     static void swap(int[] arr,int i,int j) {
