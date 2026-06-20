@@ -3,6 +3,7 @@ public class String_Pattern_FAANG {
         skip("","baabcs");
         System.out.println(skip("baabcs"));
         System.out.println(skipBadam("I LOVE YOU  badam"));
+        System.out.println(skipBadNotBadam("I LOVE YOU bad badam"));
     }
     static void skip(String p,String up){
         if(up.isEmpty()){
@@ -38,6 +39,18 @@ public class String_Pattern_FAANG {
         }
         else{
             return up.charAt(0)+skipBadam(up.substring(1));
+        }
+    }
+
+    static String skipBadNotBadam(String up){
+        if(up.isEmpty()){
+            return "";
+        }
+        if(up.startsWith("bad")&!up.startsWith("badam")){
+            return skipBadNotBadam(up.substring(3));
+        }
+        else{
+            return up.charAt(0)+skipBadNotBadam(up.substring(1));
         }
     }
 }
