@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/ArrayDsa.iml" filepath="$PROJECT_DIR$/ArrayDsa.iml" />
       <module fileurl="file://$PROJECT_DIR$/Bit_Manipulation/Bit_Manipulation.iml" filepath="$PROJECT_DIR$/Bit_Manipulation/Bit_Manipulation.iml" />
       <module fileurl="file://$PROJECT_DIR$/HashTable/HashTable.iml" filepath="$PROJECT_DIR$/HashTable/HashTable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedList/LinkedList.iml" filepath="$PROJECT_DIR$/LinkedList/LinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/RecusionDsa/Recursion_Important/Recursion_Important.iml" filepath="$PROJECT_DIR$/RecusionDsa/Recursion_Important/Recursion_Important.iml" />
       <module fileurl="file://$PROJECT_DIR$/StringDsa/StringDsa.iml" filepath="$PROJECT_DIR$/StringDsa/StringDsa.iml" />
       <module fileurl="file://$PROJECT_DIR$/TakeU/TakeU.iml" filepath="$PROJECT_DIR$/TakeU/TakeU.iml" />
