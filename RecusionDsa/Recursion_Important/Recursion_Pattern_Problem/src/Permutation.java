@@ -7,6 +7,18 @@ public class Permutation {
        System.out.println(permutationList("","abc"));
 
     }
+    static void permutation(String p,String str){
+       if(str.isEmpty()){
+           System.out.println(p);
+           return;
+       }
+       char ch = str.charAt(0);
+       for(int i=0;i<=p.length();i++){
+           String first = p.substring(0,i);
+           String second = p.substring(i,p.length());
+           permutation(first+ch+second,str.substring(1));
+       }
+    }
 
 
     static int permutationCount(String p,String up) {
