@@ -6,16 +6,22 @@ public class numbers {
         }
     }
 
-    static void main() {
-        number3(1);
-    }
-    }
-//    static void number1(int n) { // reverse printing
-//        if(n<=10){
-//            number1(n+1);
-//            System.out.println(n);
-//        }
+//    static void main() {
+//        number3(1);
 //    }
+    }
+    static void number1(int n) { // reverse printing
+        if(n<=10){
+            number1(n+1);
+            System.out.println(n);
+        }
+    }
+
+void main() {
+    System.out.println();
+    number1(1);
+
+}
 //    static void number2(int n) { // condition by kunal
 //        if(n==10){
 //            System.out.println(n);

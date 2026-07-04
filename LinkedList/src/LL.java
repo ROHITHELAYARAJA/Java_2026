@@ -7,6 +7,20 @@ public class LL {
       this.size = 0;
   }
 
+  public void insertRec(int value, int index){
+      head =  insertRec(value, index, head);
+
+  }
+  private Node insertRec(int value,int index,Node node){
+      if(index==0){
+          Node temp = new Node(value,node);
+          size++;
+          return temp;
+      }
+      node.next = insertRec(value,--index,node.next);
+      return node;
+  }
+
   public void display(){
       Node temp = head;
       while(temp!=null){
@@ -126,4 +140,82 @@ public class LL {
           this.next = next;
       }
   }
+
+
+  public void Duplicates(){
+      Node temp = head;
+      while(temp.next!=null){
+          if(temp.value==temp.next.value){
+              temp.next=temp.next.next;
+              size--;
+          }
+          else{
+              temp = temp.next;
+          }
+      }
+      tail = temp;
+      tail.next = null;
+  }
+
+  public static LL merge(LL x, LL y){
+
+      Node a = x.head;
+      Node b = y.head;
+      LL node = new LL();
+      while(a!=null &&b!=null){
+          if(a.value<b.value){
+              node.insertLast(a.value);
+              a =  a.next;
+          }
+          else{
+              node.insertLast(b.value);
+              b =  b.next;
+          }
+      }
+      while(a!=null){
+          node.insertFirst(a.value);
+          a =  a.next;
+      }
+      while(b!=null){
+          node.insertLast(b.value);
+          b =  b.next;
+      }
+      return node;
+  }
+    public static Node findTail(Node head) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        return findTail(head.next);
+    }
+
+    static void main() {
+        LL obj = new LL();
+        obj.insertFirst(1);
+        obj.insertLast(1);
+        obj.insertLast(1);
+        obj.insertLast(3);
+        obj.insertLast(3);
+        obj.display();
+        System.out.println();
+        obj.Duplicates();
+        obj.display();
+
+        LL obj2 = new LL();
+        obj2.insertFirst(1);
+        obj2.insertLast(5);
+        obj2.insertLast(9);
+        LL obj3 = new LL();
+        obj3.insertFirst(2);
+        obj3.insertLast(4);
+        System.out.println();
+
+        LL ans = merge(obj2,obj3);
+        ans.display();
+        Node x = findTail(obj.head);
+        System.out.println();
+        System.out.println(x.value);
+    }
 }
