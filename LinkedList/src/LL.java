@@ -127,8 +127,8 @@ public class LL {
       return temp;
     }
 
-
-  private class Node{
+// IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT
+  private static class Node{
       private int value;
       private Node next;
       public Node(int value){
@@ -140,7 +140,7 @@ public class LL {
           this.next = next;
       }
   }
-
+// IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT IMPORTANT
 
   public void Duplicates(){
       Node temp = head;
@@ -191,6 +191,45 @@ public class LL {
         return findTail(head.next);
     }
 
+
+    public static boolean hasCycle(Node head) {
+      Node fast = head;
+      Node slow = head;
+      while(fast!=null && fast.next!=null){
+          slow = slow.next;
+          fast = fast.next.next;
+          if(slow==fast){
+              return true;
+          }
+      }
+      return false;
+    }
+
+    public static int lengthCycle(Node head) {
+        Node fast = head;
+        Node slow = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow==fast) {
+                int length = 0;
+                Node temp = slow;
+                do {
+                    temp = temp.next;
+                    length++;
+                } while (temp != slow);
+                return length;
+            }
+        }
+        return 0;
+  }
+    public static int lastElement(Node temp) {
+        if (temp == null) {
+            return 0;
+        }
+
+        return 1 + lastElement(temp.next);
+    }
     static void main() {
         LL obj = new LL();
         obj.insertFirst(1);
@@ -217,5 +256,16 @@ public class LL {
         Node x = findTail(obj.head);
         System.out.println();
         System.out.println(x.value);
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = new Node(40);
+
+
+        System.out.println();
+
+
+
+        System.out.println(lastElement(head));
     }
 }
